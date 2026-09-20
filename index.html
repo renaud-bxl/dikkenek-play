@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Installer Dikkenek Play</title>
+<style>
+  body{margin:0;background:#0c0c0c;color:#e8e4dc;font:17px/1.5 -apple-system,Helvetica,Arial,sans-serif;display:flex;justify-content:center}
+  main{max-width:720px;padding:48px 24px 80px}
+  img{width:min(420px,80vw);display:block;margin:0 auto 32px}
+  h1{font-size:28px;margin:0 0 8px;text-align:center}
+  p.sub{text-align:center;color:#aaa;margin:0 0 36px}
+  .box{background:#161616;border:1px solid #2a2a2a;border-radius:14px;padding:22px 24px;margin:18px 0}
+  .step{display:flex;gap:16px;align-items:flex-start;margin:14px 0}
+  .n{flex:none;width:34px;height:34px;border-radius:50%;background:#FFB300;color:#111;font-weight:800;display:flex;align-items:center;justify-content:center}
+  code{display:block;background:#000;border:1px solid #333;border-radius:10px;padding:14px 16px;font:15px/1.4 Menlo,monospace;overflow-x:auto;white-space:nowrap;margin:10px 0}
+  button{width:100%;font-size:20px;font-weight:800;background:#FFB300;color:#111;border:0;border-radius:12px;padding:18px;cursor:pointer}
+  button:active{background:#e0a000}
+  .ok{color:#34c759;font-weight:700;text-align:center;height:24px;margin-top:10px}
+  .note{color:#888;font-size:14px}
+  kbd{background:#222;border:1px solid #444;border-radius:5px;padding:1px 6px;font-family:inherit}
+</style></head><body><main>
+<img src="logo.png" alt="Dikkenek Play">
+<h1>Installer Dikkenek Play sur un Mac</h1>
+<p class="sub">Aucun message d'alerte, rien d'autre à installer. Mac Apple Silicon (M1 ou plus récent), macOS 12+.</p>
+<div class="box">
+  <div class="step"><div class="n">1</div><div>Cliquez sur le bouton pour copier la commande d'installation :<br>
+    <button id="copy">📋 Copier la commande d'installation</button><div class="ok" id="ok"></div>
+    <code id="cmd">curl -fsSL https://raw.githubusercontent.com/renaud-bxl/dikkenek-play/main/install.sh | bash</code></div></div>
+  <div class="step"><div class="n">2</div><div>Ouvrez l'application <b>Terminal</b> : touche <kbd>⌘</kbd> + <kbd>Espace</kbd>, tapez <b>Terminal</b>, <kbd>Entrée</kbd>.</div></div>
+  <div class="step"><div class="n">3</div><div>Collez la commande (<kbd>⌘</kbd> + <kbd>V</kbd>) et appuyez sur <kbd>Entrée</kbd>. Le téléchargement (≈ 220 Mo) démarre, l'application s'installe dans <b>Applications</b> et s'ouvre toute seule.</div></div>
+</div>
+<p class="note">La même commande sert aussi pour les mises à jour : elle installe toujours la dernière version. Le mode d'emploi (LISEZ-MOI) est déposé sur le Bureau à l'installation.<br>
+Logiciel créé par Renaud Ben Lakhal pour l'événement DIKKENEK 20 ANS.</p>
+<script>
+document.getElementById('copy').onclick=async()=>{const t=document.getElementById('cmd').textContent;try{await navigator.clipboard.writeText(t);document.getElementById('ok').textContent='✓ Copié — passez à l\'étape 2';}catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById('cmd'));getSelection().removeAllRanges();getSelection().addRange(r);document.getElementById('ok').textContent='Sélectionnée : faites ⌘C pour copier';}};
+</script></main></body></html>
